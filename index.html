@@ -44,6 +44,12 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 5px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .header-container {
@@ -51,6 +57,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 0;
+            transition: all 0.3s ease;
         }
         
         .logo {
@@ -60,6 +67,11 @@
         
         .logo img {
             height: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled .logo img {
+            height: 40px;
         }
         
         nav ul {
@@ -76,10 +88,26 @@
             color: var(--dark-text);
             font-weight: 500;
             transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
         }
         
         nav ul li a:hover {
             color: var(--primary-blue);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
         }
         
         .mobile-menu-btn {
@@ -97,12 +125,28 @@
             color: var(--white);
             padding: 150px 0 100px;
             margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
         }
         
         .hero-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: relative;
+            z-index: 1;
         }
         
         .hero-text {
@@ -133,11 +177,28 @@
             font-size: 1.1rem;
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.5s;
         }
         
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .cta-button:hover:before {
+            left: 100%;
         }
         
         .hero-image {
@@ -149,6 +210,11 @@
             max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-image img:hover {
+            transform: scale(1.03);
         }
         
         .highlight {
@@ -185,6 +251,11 @@
             max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image img:hover {
+            transform: scale(1.03);
         }
         
         .partnership {
@@ -193,6 +264,11 @@
             border-radius: 10px;
             margin-top: 30px;
             border-left: 4px solid var(--primary-green);
+            transition: transform 0.3s ease;
+        }
+        
+        .partnership:hover {
+            transform: translateY(-5px);
         }
         
         .partnership h3 {
@@ -215,6 +291,18 @@
             font-size: 2.2rem;
             color: var(--primary-blue);
             margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            bottom: -10px;
+            left: 25%;
         }
         
         .section-title p {
@@ -234,11 +322,29 @@
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--primary-green));
+            transition: width 0.3s ease;
         }
         
         .benefit-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-card:hover:before {
+            width: 10px;
         }
         
         .benefit-icon {
@@ -252,6 +358,13 @@
             justify-content: center;
             font-size: 1.5rem;
             margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            background-color: var(--primary-green);
+            color: var(--white);
+            transform: rotateY(180deg);
         }
         
         .benefit-card h3 {
@@ -303,6 +416,31 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin: 0 auto 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-number:before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .step:hover .step-number {
+            transform: scale(1.1);
+        }
+        
+        .step:hover .step-number:before {
+            opacity: 0.3;
         }
         
         .step h3 {
@@ -325,6 +463,23 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             max-width: 400px;
             margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .price-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+        }
+        
+        .price-card:hover {
+            transform: translateY(-10px);
         }
         
         .price-amount {
@@ -376,12 +531,31 @@
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--light-blue);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
         }
         
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
             color: var(--light-text);
+            position: relative;
+            z-index: 1;
         }
         
         .testimonial-author {
@@ -413,6 +587,25 @@
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
             color: var(--white);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .whatsapp-cta:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1627556704307-3136b04bfc50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .whatsapp-cta .container {
+            position: relative;
+            z-index: 1;
         }
         
         .whatsapp-button {
@@ -427,6 +620,19 @@
             font-size: 1.2rem;
             margin-top: 30px;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .whatsapp-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: all 0.5s;
         }
         
         .whatsapp-button i {
@@ -437,6 +643,10 @@
         .whatsapp-button:hover {
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .whatsapp-button:hover:before {
+            left: 100%;
         }
         
         /* Footer */
@@ -457,6 +667,18 @@
             font-size: 1.3rem;
             margin-bottom: 20px;
             color: var(--white);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background-color: var(--primary-green);
+            bottom: -5px;
+            left: 0;
         }
         
         .footer-column ul {
@@ -475,6 +697,7 @@
         
         .footer-column ul li a:hover {
             color: var(--white);
+            padding-left: 5px;
         }
         
         .copyright {
@@ -482,6 +705,37 @@
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
         }
         
         /* Responsive Design */
@@ -541,6 +795,14 @@
             .section-title h2 {
                 font-size: 1.8rem;
             }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -579,7 +841,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Telemedicina">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Telemedicina">
             </div>
         </div>
     </section>
@@ -602,9 +864,6 @@
                         <h3>Parceria Estratégica</h3>
                         <p>O Saúde pra Todos é parceira da Ailine Telemedicina, maior plataforma de saúde integral do Brasil. Por meio do atendimento via telemedicina, conectamos pacientes, médicos e instituições de saúde de forma rápida e eficiente. Com foco no atendimento humanizado e preventivo.</p>
                     </div>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=700&q=80" alt="Equipe Saúde pra Todos">
                 </div>
             </div>
         </div>
@@ -730,7 +989,7 @@
                         <div class="author-avatar">MC</div>
                         <div>
                             <div class="author-name">Maria Carvalho</div>
-                            <div>São Paulo, SP</div>
+                            <div>Esplanada, BA</div>
                         </div>
                     </div>
                 </div>
@@ -742,7 +1001,7 @@
                         <div class="author-avatar">JS</div>
                         <div>
                             <div class="author-name">João Silva</div>
-                            <div>Belo Horizonte, MG</div>
+                            <div>Olinda, PE</div>
                         </div>
                     </div>
                 </div>
@@ -754,7 +1013,7 @@
                         <div class="author-avatar">AS</div>
                         <div>
                             <div class="author-name">Ana Souza</div>
-                            <div>Rio de Janeiro, RJ</div>
+                            <div>João Pessoa, PB</div>
                         </div>
                     </div>
                 </div>
@@ -805,6 +1064,11 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
     <script>
         // Simple JavaScript for mobile menu toggle
         document.getElementById('menuToggle').addEventListener('click', function() {
@@ -817,6 +1081,52 @@
             link.addEventListener('click', () => {
                 const menu = document.getElementById('menu');
                 menu.classList.remove('show');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
